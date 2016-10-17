@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Olympics</string>
+    <string name="app_name">Jogos Olímpicos Rio 2016</string>
+    <string name="app_txt_ingressos">Ingressos</string>
 </resources>

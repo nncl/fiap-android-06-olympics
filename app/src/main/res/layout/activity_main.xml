@@ -12,5 +12,115 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_txt_ingressos"
+        android:id="@+id/txtIngressos"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView"
+        android:src="@mipmap/rio"
+        android:layout_alignTop="@+id/txtIngressos"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Nome"
+        android:id="@+id/txtNome"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtNome"
+        android:layout_below="@+id/txtNome"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Idade"
+        android:id="@+id/txtIdade"
+        android:layout_below="@+id/edtNome"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/edtIdade"
+        android:layout_below="@+id/txtIdade"
+        android:layout_toStartOf="@+id/txtIngressos" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Modalidade"
+        android:id="@+id/txtModalidade"
+        android:layout_below="@+id/edtIdade"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinModalidade"
+        android:layout_below="@+id/txtModalidade"
+        android:layout_alignEnd="@+id/edtNome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Período"
+        android:id="@+id/txtPeriodo"
+        android:layout_below="@+id/spinModalidade"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manhã (9h às 12h)"
+        android:id="@+id/chkManha"
+        android:checked="false"
+        android:layout_below="@+id/txtPeriodo"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/chkTarde" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarde (13h às 18h)"
+        android:id="@+id/chkTarde"
+        android:layout_below="@+id/chkManha"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Noite (18h às 23h)"
+        android:id="@+id/chkNoite"
+        android:layout_below="@+id/chkTarde"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/chkTarde"
+        android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reservar"
+        android:id="@+id/btnReservar"
+        android:layout_below="@+id/chkNoite"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
