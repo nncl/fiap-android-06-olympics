@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Jogos Olímpicos Rio 2016</string>
     <string name="app_txt_ingressos">Ingressos</string>
+    <string-array name="app_list_modalidades">
+        <item>Basquete</item>
+        <item>Natação</item>
+        <item>Vôlei</item>
+    </string-array>
 </resources>
