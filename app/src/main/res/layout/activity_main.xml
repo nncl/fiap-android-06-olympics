@@ -87,44 +87,33 @@
         android:layout_below="@+id/spinModalidade"
         android:layout_alignParentStart="true" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Manhã (9h às 12h)"
-        android:id="@+id/chkManha"
-        android:checked="false"
-        android:layout_below="@+id/txtPeriodo"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/chkTarde" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tarde (13h às 18h)"
-        android:id="@+id/chkTarde"
-        android:layout_below="@+id/chkManha"
-        android:checked="false" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Noite (18h às 23h)"
-        android:id="@+id/chkNoite"
-        android:layout_below="@+id/chkTarde"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/chkTarde"
-        android:checked="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reservar"
         android:id="@+id/btnReservar"
-        android:layout_below="@+id/chkNoite"
+        android:layout_below="@+id/rdgPeriodo"
         android:layout_alignParentStart="true"
         android:onClick="reservar"
         android:clickable="true"
 
         android:layout_alignEnd="@+id/spinModalidade" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPeriodo"
+        android:layout_toStartOf="@+id/txtIngressos"
+        android:layout_alignEnd="@+id/spinModalidade"
+        android:id="@+id/rdgPeriodo">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manhã"
+            android:id="@+id/rdbManha"
+            android:checked="false" />
+    </RadioGroup>
 
 </RelativeLayout>

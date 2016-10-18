@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText    nome;
     private EditText    idade;
     private Spinner     modalidades;
-    private CheckBox    manha;
-    private CheckBox    tarde;
-    private CheckBox    noite;
+    private RadioGroup  periodo;
+
     private Dialog      dialog;
     private TextView    dialogName;
     private TextView    dialogIdade;
@@ -36,37 +37,37 @@ public class MainActivity extends AppCompatActivity {
         nome =          (EditText) findViewById(R.id.edtNome);
         idade =         (EditText) findViewById(R.id.edtIdade);
         modalidades =   (Spinner) findViewById(R.id.spinModalidade);
-        manha =         (CheckBox) findViewById(R.id.chkManha);
-        tarde =         (CheckBox) findViewById(R.id.chkTarde);
-        noite =         (CheckBox) findViewById(R.id.chkNoite);
+        periodo =       (RadioGroup) findViewById(R.id.rdgPeriodo);
+    }
+
+    public void reservar(View v) {
 
         dialog =        new Dialog(this);
-        dialog.setTitle("Confirmação");
         dialog.setContentView(R.layout.confirmacao);
-        dialogName =            (TextView) dialog.findViewById(R.id.txtNomeResult);
+
+        dialogName =            (TextView) dialog.findViewById(R.id.txtNomeResult); // it waits an
+        // editable variable, not a string
         dialogIdade =           (TextView) dialog.findViewById(R.id.txtIdadeResult);
         dialogModalidade =      (TextView) dialog.findViewById(R.id.txtModalidadeResult);
         dialogPeriodo =         (TextView) dialog.findViewById(R.id.txtPeriodoResult);
         dialogButton =          (Button) dialog.findViewById(R.id.btnConfirmar);
 
-        alertBuilder =  new AlertDialog.Builder(this);
-        alertBuilder.setTitle("Confirmado");
-        alertBuilder.setMessage("Você está confirmado para essa Olimpíada :)");
-    }
-
-    public void reservar(View v) {
-
         dialogName.setText(nome.getText());
         dialogIdade.setText(idade.getText());
         dialogModalidade.setText(modalidades.getSelectedItem().toString());
-        dialogPeriodo.setText(
-                manha.isChecked() ? "Manhã" : null
-        );
+
+        int selectedID = periodo.getCheckedRadioButtonId();
+        RadioButton selectedRB = (RadioButton) findViewById(selectedID);
+        dialogPeriodo.setText(selectedRB.getText());
 
         dialog.show();
     }
 
     public void confirmar(View v) {
+        alertBuilder =  new AlertDialog.Builder(this);
+        alertBuilder.setTitle("Confirmado");
+        alertBuilder.setMessage("Você está confirmado para essa Olimpíada :)");
+
         alertBuilder.show();
     }
 }
