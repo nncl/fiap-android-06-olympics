@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         idade.setText("");
         periodo.clearCheck();
 
+        // TODO: reset modalidade
+
         // fecha o primeiro dialog => o que vêm do método reservar()
         dialog.cancel();
     }
