@@ -1,20 +1,19 @@
 package com.fiap.mob.olympics;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DialogInterface.OnClickListener {
 
     private EditText    nome;
     private EditText    idade;
@@ -40,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         periodo =       (RadioGroup) findViewById(R.id.rdgPeriodo);
     }
 
+    /**
+     * Realiza a reserva e mostra para o usuário confirmar
+     */
+
     public void reservar(View v) {
 
         dialog =        new Dialog(this);
@@ -63,11 +66,28 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    /**
+     * Confirma a reserva e avisa ao usuário
+     */
+
     public void confirmar(View v) {
         alertBuilder =  new AlertDialog.Builder(this);
         alertBuilder.setTitle("Confirmado");
         alertBuilder.setMessage("Você está confirmado para essa Olimpíada :)");
+        alertBuilder.setNeutralButton("Ok", this);
 
         alertBuilder.show();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+
+        // reseta a view
+        nome.setText("");
+        idade.setText("");
+        periodo.clearCheck();
+
+        // fecha o primeiro dialog => o que vêm do método reservar()
+        dialog.cancel();
     }
 }
